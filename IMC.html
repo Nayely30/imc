@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="est.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Calculadora del índice de masa corporal (IMC)</h1>
+    </header>
+    <section class="masa">
+        <label>Ingrese su nombre:</label>
+        <br>
+        <input type="text" id="nombre">
+        <br>
+        <label>Ingrese su estatura:</label>
+        <br>
+        <input type="number" id="estatura" placeholder="en m">
+        <br>
+        <label>Ingrese su peso:</label>
+        <br>
+        <input type="number" id="peso" placeholder="en kg">
+        <br>
+        <button id="btn1" class="boton">Calcular</button>
+        <div id="resultado"></div>
+        <script>
+            var t=document.getElementById('btn1');
+            t.addEventListener('click',masa);
+            function masa() 
+            {
+                var n1=parseInt(document.getElementById('estatura').value);
+                var n2=parseInt(document.getElementById('peso').value);
+                var x = document.getElementById("nombre").value;
+                var s=n1/100;
+                var r=n2/(s)**2;
+
+                if (r<18.5) {
+                document.getElementById("resultado").innerHTML =x+' tu IMC es '+r.toFixed(2)+" significa que tu peso es inferior al normal";   
+                }
+                else if (r>=18.5 && r<=24.9){
+                    document.getElementById("resultado").innerHTML =x+' tu IMC es '+r.toFixed(2)+" significa que tienes un peso normal";   
+                }
+                else if (r>=25.0 && r<=29.9){
+                    document.getElementById("resultado").innerHTML =x+' tu IMC es '+r.toFixed(2)+" significa que tu peso es superior al normal";   
+                }
+                else{
+                    document.getElementById("resultado").innerHTML =x+' tu IMC es '+r.toFixed(2)+" significa que tienes obesidad";   
+                }
+            }
+            
+            
+        </script>
+    </section>
+
+    
+</body>
+</html>
